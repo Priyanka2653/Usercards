@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User List</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+    <h1>User List</h1>
+    <div class="user-list">
+        <div th:each="user : ${users}" class="user-card" >
+         <!--   <img th:src="@{${user.avatarUrl}}" class="avatar" /> -->
+         
+            <div class="user-info">
+            <a href="#"  th:href="@{/users/{name}(name=${user.name})}">
+			    <h2 th:text="${user.name}"></h2>
+	  		 </a>
+            
+               <div class="user-card">
+        <a th:href="@{/users/{id}(id=${user.id})}">View Details</a>
+    </div>  
+               
+                <p th:text="${user.email}"></p>
+                
+                 <form th:action="@{/download}" method="post">
+				        <input type="hidden" name="content" th:value="${content}" />
+				     	<button type="submit">Download</button>
+   				 </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

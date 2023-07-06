@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Details</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+    <div class="user-card2">
+        <div class="user-image">
+            <img th:src="@{${user.avatarUrl}}" class="avatar" />
+        </div>
+        <div class="user-info2">
+            <h2 th:text="${user.name}"></h2>
+            <p th:text="${user.email}"></p>
+        </div>
+    </div>
+</body>
+</html>
